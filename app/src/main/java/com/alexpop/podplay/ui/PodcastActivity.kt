@@ -11,6 +11,7 @@ import android.widget.SearchView
 import com.alexpop.podplay.R
 import com.alexpop.podplay.repository.ItunesRepo
 import com.alexpop.podplay.service.ItunesService
+import kotlinx.android.synthetic.main.activity_main.*
 import com.alexpop.podplay.service.PodcastResponse
 import retrofit2.Call
 import retrofit2.Response
@@ -22,9 +23,10 @@ class PodcastActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         val itunesService = ItunesService.instance //getServiceInstance()
         val itunesRepo = ItunesRepo(itunesService)
+
+        setupToolbar()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -61,4 +63,9 @@ class PodcastActivity : AppCompatActivity() {
         setIntent(intent)
         handleIntent(intent)
     }
+
+    private fun setupToolbar(){
+        setSupportActionBar(toolbar)
+    }
+
 }
