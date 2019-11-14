@@ -5,6 +5,7 @@ import android.app.SharedElementCallback
 import androidx.lifecycle.AndroidViewModel
 import com.alexpop.podplay.repository.ItunesRepo
 import com.alexpop.podplay.service.PodcastResponse
+import com.alexpop.podplay.util.DateUtils
 
 class SearchViewModel(application: Application) :
         AndroidViewModel(application) {
@@ -21,7 +22,7 @@ class SearchViewModel(application: Application) :
             PodcastSummaryViewData {
         return PodcastSummaryViewData(
         itunesPodcast.collectionCensoredName,
-        itunesPodcast.releaseDate,
+        DateUtils.jsonDateToShortDate(itunesPodcast.releaseDate),
         itunesPodcast.artworkUrl30,
         itunesPodcast.feedUrl)
     }
