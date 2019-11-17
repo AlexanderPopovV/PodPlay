@@ -60,7 +60,6 @@ class PodcastListAdapter(
         holder.podcastSummaryViewData = searchView
         holder.nameTextView.text = searchView.name
         holder.lastUpdatedTextView.text = searchView.lastUpdated
-
         Glide.with(parentActivity)
             .load(searchView.imageUrl)
             .into(holder.podcastImageView)

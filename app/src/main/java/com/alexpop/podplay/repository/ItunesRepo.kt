@@ -7,11 +7,13 @@ import retrofit2.Response
 import javax.security.auth.callback.Callback
 
 class ItunesRepo(private val itunesService: ItunesService) {
+
     fun searchByTerm(term: String, callBack: (List<PodcastResponse.ItunesPodcast>?) -> Unit) {
+
         val podcastCall = itunesService.searchPodcastByTern(term)
+
         podcastCall.enqueue(object : retrofit2.Callback<PodcastResponse> {
-            override fun onFailure(call: Call<PodcastResponse>?,
-                                   t: Throwable?){
+            override fun onFailure(call: Call<PodcastResponse>?, t: Throwable?){
                 callBack(null)
             }
 
